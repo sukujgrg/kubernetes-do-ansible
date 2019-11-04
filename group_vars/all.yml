@@ -1,0 +1,14 @@
+DO_API_KEY: "{{ DO_API_TOKEN }}"
+DO_REGION_ID: sgp1
+DO_SIZE_ID: "s-1vcpu-1gb"
+DO_IMAGE_ID: "ubuntu-16-04-x64"
+DO_SSHKEY_ID: "{{ DO_SSHKEY }}"
+
+# Version
+KUBE_VERSION: "1.15"
+KUBEADM_TOKEN: "abc123.0123456789abcdef"
+DOCKER_VERSION: "18.06"
+
+
+# 
+SUDO_USER: ubuntu

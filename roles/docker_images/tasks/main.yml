@@ -1,0 +1,7 @@
+- name: copy images
+  copy:
+    src: docker_images/k8s.gcr.io
+    dest: ~/
+
+- name: load images
+  shell: for image in ~/k8s.gcr.io/*.tar; do docker load --input $image ; done 

@@ -1,0 +1,19 @@
+- name: create a new droplet
+  digital_ocean_droplet:
+    state: "{{ state }}"
+    name: "{{ item.name }}"
+    oauth_token: "{{ DO_API_KEY }}"
+    size: "{{ DO_SIZE_ID }}"
+    region: "{{ DO_REGION_ID }}"
+    image: "{{ DO_IMAGE_ID }}"
+    wait_timeout: 500
+    unique_name: yes
+    ssh_keys:
+      - "{{ DO_SSHKEY_ID }}"
+    tags: "{{ item.tags }}"
+  register: my_droplet
+  tags:
+    - create_droplet
+  loop:
+    - {"name": "master-01", "tags": ["k8s", "master"]}
+    - {"name": "worker-01", "tags": ["k8s", "worker"]}

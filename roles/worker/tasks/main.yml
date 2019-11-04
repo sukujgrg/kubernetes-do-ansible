@@ -1,0 +1,2 @@
+- name: join master
+  shell: "{{ hostvars[groups['master'][0]]['kubeadm_join_cmd'].stdout }}"
