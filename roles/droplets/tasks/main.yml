@@ -25,5 +25,5 @@
   tags:
     - create_droplet
   loop:
-    - {"name": "master-01", "tags": ["k8s", "master"]}
-    - {"name": "worker-01", "tags": ["k8s", "worker"]}
+    - {"name": "master01", "tags": ["k8s", "master"]}
+    - {"name": "worker01", "tags": ["k8s", "worker"]}

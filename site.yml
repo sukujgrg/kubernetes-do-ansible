@@ -1,19 +1,33 @@
 ---
 
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  roles:
+    - droplets
+  tags:
+    - provision
+
 - hosts: all
   gather_facts: true
   become: true
   roles:
     - common
+  tags:
+    - k8s
 
 - hosts: master
   gather_facts: true
   become: true
   roles:
     - master
+  tags:
+    - k8s
 
 - hosts: worker
   gather_facts: true
   become: true
   roles:
     - worker
+  tags:
+    - k8s

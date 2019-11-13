@@ -1,2 +1,2 @@
 - name: join master
-  shell: "{{ hostvars[groups['master'][0]]['kubeadm_join_cmd'].stdout }}"
+  shell: "kubeadm reset --force; {{ hostvars[groups['master'][0]]['kubeadm_join_cmd'].stdout }}"
