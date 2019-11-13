@@ -1,6 +1,11 @@
 ## Deploy a Kubernetes cluster on Digital Ocean with Kubeadm
-
 Ansible playbook for deploying a Kubernetes cluster with kubeadm on Digital Ocean droplets.
+
+### Purpose
+Spin up quickly a kuberntes cluster on Digital Ocean.
+
+I find it useful when you don't have a good local machine and internet around where you can spin up few vagrant boxes.
+This ansible playbook will [create](#deploy) two Droplets and deploy a kubernetes cluster on it. The creation of two droplets will incur [charges](https://www.digitalocean.com/pricing/). So when you don't need it [destroy](#destroy-droplets-and-thus-kubernetes-cluster) it.
 
 ### Environment Prep
 - Digital Ocean API token
