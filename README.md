@@ -17,5 +17,10 @@ $ make create
 
 ### Destroy Droplets and thus kubernetes cluster
 ```
+$ export DO_API_TOKEN=<YOUR DIGITAL OCEAN API TOKEN>
 $ make destroy
 ```
+
+### Droplet Region and Droplet Size
+
+If you want change Droplet Region and Droplet Size, modify it in [group_vars/main.yml](group_vars/main.yml)
