@@ -29,7 +29,7 @@ $ make destroy
 
 ### Droplet Region and Droplet Size
 
-If you want change Droplet Region and Droplet Size, modify it in [group_vars/main.yml](group_vars/main.yml)
+If you want change Droplet Region and Droplet Size, modify it in [group_vars/all.yml](group_vars/all.yml)
 
 ### Check cluster after the deployment
 Note: SSHing with `root` user is a terrible idea. So always make sure to [destroy](#destroy-droplets-and-thus-kubernetes-cluster) the droplets when you don't need it. 
