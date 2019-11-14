@@ -9,3 +9,11 @@ provision:
 .PHONY: create
 create: provision
 	ansible-playbook site.yml -e 'state=present' -t k8s
+
+.PHONY: common
+common: provision
+	ansible-playbook site.yml -e 'state=present' -t common
+
+.PHONY: listdroplets
+listdroplets:
+	./inventory/digital_ocean.py -d -p | jp.py droplets[*].[name,networks.v4[*].ip_address]

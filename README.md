@@ -35,9 +35,7 @@ If you want change Droplet Region and Droplet Size, modify it in [group_vars/all
 Note: SSHing with `root` user is a terrible idea. So always make sure to [destroy](#destroy-droplets-and-thus-kubernetes-cluster) the droplets when you don't need it. 
 
 ```
-suku@localhost:~$ ssh root@<MASTER IP ADDRESS> -i ~/.ssh/<your private key>
-
-root@master01:~# su - ubuntu
+suku@localhost:~$ ssh ubuntu@<MASTER IP ADDRESS> -i ~/.ssh/<your private key>
 ...
 ...
 

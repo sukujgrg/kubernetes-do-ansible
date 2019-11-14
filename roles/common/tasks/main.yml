@@ -42,6 +42,14 @@
     shell: /bin/bash
     groups: sudo
 
+# I know, how bad this is.
+- name: copy pub ssh key of root to sudo user
+  copy:
+    src: /root/.ssh
+    dest: "/home/{{ SUDO_USER }}/"
+    owner: "{{ SUDO_USER }}"
+    remote_src: yes
+
 - name: "Allow 'sudo' group to have passwordless sudo"
   lineinfile:
     dest: /etc/sudoers
