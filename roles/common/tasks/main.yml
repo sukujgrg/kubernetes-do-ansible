@@ -65,5 +65,13 @@
     mode: 0755
     owner: "{{ SUDO_USER }}"
 
+- name: kubectl bash completion
+  lineinfile:
+    dest: "/home/{{ SUDO_USER }}/.bash_profile"
+    line: "source <(kubectl completion bash)"
+    mode: 0644
+    owner: "{{ SUDO_USER }}"
+    create: yes
+
 - name: swap off
   shell: swapoff -a
