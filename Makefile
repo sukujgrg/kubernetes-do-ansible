@@ -17,3 +17,7 @@ common: provision
 .PHONY: listdroplets
 listdroplets:
 	./inventory/digital_ocean.py -d -p | jp.py droplets[*].[name,networks.v4[0].ip_address]
+
+.PHONY: ssh
+ssh:
+	ssh ubuntu@$(shell ./inventory/digital_ocean.py -d -p | jp.py 'droplets[?name == `master01`].networks.v4[0].ip_address | [0]')
