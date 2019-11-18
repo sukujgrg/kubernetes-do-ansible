@@ -34,8 +34,10 @@ If you want change Droplet Region and Droplet Size, modify it in [group_vars/all
 
 ### Check cluster after the deployment
 
+`make ssh` will take you into the master node if you have configured your local `ssh-agent` or `~/.ssh/config` with appropriate `ssh-key` (`IdentityFile`).
+
 ```
-suku@localhost:~$ ssh ubuntu@<MASTER IP ADDRESS> -i ~/.ssh/<your private key>
+$ make ssh # add your ssh key to ssh-agent or specify the ssh key in ~/.ssh/config
 ...
 ...
 
@@ -50,3 +52,23 @@ controller-manager   Healthy   ok
 scheduler            Healthy   ok
 etcd-0               Healthy   {"health":"true"}
 ```
+
+### Get all currently running provisioned nodes
+
+`make listdroplets` will list all the running instances in your DigitalOcean account.
+
+```
+$ make listdroplets
+./inventory/digital_ocean.py -d -p | jp.py droplets[*].[name,networks.v4[0].ip_address]
+[
+    [
+        "master01",
+        "xx.xx.xx.xx"
+    ],
+    [
+        "worker01",
+        "xx.xx.x.xx"
+    ]
+]
+```
+
