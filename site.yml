@@ -14,8 +14,7 @@
   roles:
     - common
   tags:
-    - common
-    - k8s
+    - setup_common
 
 - hosts: master
   become: true
@@ -23,7 +22,7 @@
   roles:
     - master
   tags:
-    - k8s
+    - setup_master
 
 - hosts: worker
   become: true
@@ -31,4 +30,4 @@
   roles:
     - worker
   tags:
-    - k8s
+    - setup_worker

@@ -8,6 +8,8 @@
     headers:
       Authorization: "Bearer {{ DO_API_KEY }}"
   register: result
+  tags:
+    - create_droplet
 
 - name: create a new droplet
   digital_ocean_droplet:
@@ -19,11 +21,9 @@
     image: "{{ DO_IMAGE_ID }}"
     wait_timeout: 500
     unique_name: yes
-    ssh_keys: "{{ result.json | json_query('ssh_keys[*].id') }}"
+    ssh_keys: "{{ result.json | default([]) | json_query('ssh_keys[*].id') }}"
     tags: "{{ item.tags }}"
-  register: my_droplet
   tags:
     - create_droplet
-  loop:
-    - {"name": "master01", "tags": ["k8s", "master"]}
-    - {"name": "worker01", "tags": ["k8s", "worker"]}
+    - destroy_droplet
+  loop: "{{ K8S_NODES }}"
