@@ -14,6 +14,7 @@ create: provision
 common: provision
 	ansible-playbook site.yml -e 'state=present' -t common
 
+# jp.py is part of jmespath python module
 .PHONY: listdroplets
 listdroplets:
 	./inventory/digital_ocean.py -d -p | jp.py droplets[*].[name,networks.v4[0].ip_address]
