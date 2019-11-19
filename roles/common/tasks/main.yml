@@ -6,6 +6,10 @@
     delay: 10
   connection: local
 
+- name: Gather facts
+  setup:
+    filter: "ansible_distribution_release"
+
 - name: add Kubernetes apt-key
   apt_key:
        url: "{{ item }}"
