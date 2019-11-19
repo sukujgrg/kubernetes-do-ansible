@@ -6,7 +6,7 @@ Spin up quickly a kuberntes cluster on Digital Ocean.
 
 I find it useful when you don't have a good local machine and internet around where you can spin up few vagrant boxes.
 This ansible playbook will [create](#deploy) two Droplets and deploy a kubernetes cluster on it.
-The creation of two droplets will incur [charges](https://www.digitalocean.com/pricing/).
+The creation of droplets will incur [charges](https://www.digitalocean.com/pricing/).
 So when you don't need it [destroy](#destroy-droplets-and-thus-kubernetes-cluster) it.
 
 ### Environment Prep
@@ -30,13 +30,18 @@ $ make destroy
 
 ### Droplet Region and Droplet Size
 
-If you want change Droplet Region and Droplet Size, modify it in [group_vars/all.yml](group_vars/all.yml)
+Droplet Region and Droplet Size can be modified by changing `DO_REGION_ID` and `DO_SIZE_ID` respectively in [group_vars/all.yml](group_vars/all.yml)
+
+### Number of worker nodes
+
+You can add more worker nodes by updating `K8S_NODES` var in [group_vars/all.yml](group_vars/all.yml)
 
 ### Check cluster after the deployment
 
 `make ssh` will take you into the master node if you have configured your local `ssh-agent` or `~/.ssh/config` with appropriate `ssh-key` (`IdentityFile`).
 
 ```
+$ export DO_API_TOKEN=<YOUR DIGITAL OCEAN API TOKEN>
 $ make ssh # add your ssh key to ssh-agent or specify the ssh key in ~/.ssh/config
 ...
 ...
@@ -58,6 +63,7 @@ etcd-0               Healthy   {"health":"true"}
 `make listdroplets` will list all the running instances in your DigitalOcean account.
 
 ```
+$ export DO_API_TOKEN=<YOUR DIGITAL OCEAN API TOKEN>
 $ make listdroplets
 ./inventory/digital_ocean.py -d -p | jp.py droplets[*].[name,networks.v4[0].ip_address]
 [
