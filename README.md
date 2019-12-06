@@ -4,7 +4,7 @@ Ansible playbook for deploying a Kubernetes cluster with kubeadm on Digital Ocea
 ### Cluster Details
 - kubernetes 1.15.*
 - docker 18.06.*
-- ubuntu-16.04
+- ubuntu-18.04
 
 ### Purpose
 Spin up quickly a kuberntes cluster on Digital Ocean.
