@@ -37,6 +37,7 @@
       - "kubelet={{ KUBE_VERSION }}.*"
       - "kubeadm={{ KUBE_VERSION }}.*"
       - "kubectl={{ KUBE_VERSION }}.*"
+      - nfs-common
       state: present
       update_cache: yes
 
