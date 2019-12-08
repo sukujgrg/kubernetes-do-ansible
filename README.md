@@ -2,7 +2,7 @@
 Ansible playbook for deploying a Kubernetes cluster with kubeadm on Digital Ocean droplets.
 
 ### Cluster Details
-- kubernetes 1.15.*
+- kubernetes 1.16.*
 - docker 18.06.*
 - ubuntu-18.04
 

@@ -4,7 +4,7 @@ DO_SIZE_ID: "s-1vcpu-1gb"
 DO_IMAGE_ID: "ubuntu-18-04-x64"
 
 # Version
-KUBE_VERSION: "1.15"
+KUBE_VERSION: "1.16"
 DOCKER_VERSION: "18.06"
 
 
