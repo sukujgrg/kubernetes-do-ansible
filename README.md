@@ -6,7 +6,7 @@ Ansible playbook for deploying a Kubernetes cluster with kubeadm on Digital Ocea
 - docker 18.06.*
 - ubuntu-18.04
 
-_Note: For the current CKA exam see [cka-ckad-faq](http://training.linuxfoundation.org/go/cka-ckad-faq) page._
+_Note: Kubernetes version using for current CKA exam is listed [here](http://training.linuxfoundation.org/go/cka-ckad-faq) page._
 
 ### Purpose
 Spin up quickly a kuberntes cluster on Digital Ocean.
