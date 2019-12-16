@@ -4,11 +4,11 @@ destroy:
 
 .PHONY: provision
 provision:
-	ansible-playbook site.yml -e 'state=present' -t provision -vvvvvvv
+	ansible-playbook site.yml -e 'state=present' -t provision
 	
 .PHONY: common
 common: provision
-	ansible-playbook site.yml -e 'state=present' -t setup_common -vvvvvv
+	ansible-playbook site.yml -e 'state=present' -t setup_common
 
 .PHONY: create
 create: provision
