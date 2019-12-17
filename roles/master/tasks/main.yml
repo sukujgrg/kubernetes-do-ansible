@@ -15,3 +15,7 @@
 - name: apply network add-on
   shell: kubectl apply -f https://docs.projectcalico.org/v3.8/manifests/calico.yaml
   become_user: "{{ SUDO_USER }}"
+
+- name: untaint master node for scheduling
+  shell: kubectl taint node master01 node-role.kubernetes.io/master:NoSchedule-
+  become_user: "{{ SUDO_USER }}"
